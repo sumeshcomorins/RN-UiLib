@@ -7,6 +7,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import TabOne from './src/screens/TabOne';
 import TabTwo from './src/screens/TabTwo';
 import TabThree from './src/screens/TabThree';
+import TabFour from './src/screens/TabFour';
 
 const screenOptions = {
   // headerTitleAlign: 'center',
@@ -48,6 +49,16 @@ function TabThreeStackScreen() {
   );
 }
 
+const TabFourStack = createNativeStackNavigator();
+
+function TabFourStackScreen() {
+  return (
+    <TabFourStack.Navigator initialRouteName="Tab4" screenOptions={screenOptions}>
+      <TabFourStack.Screen name="Tab4" component={TabFour} />
+    </TabFourStack.Navigator>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -65,13 +76,19 @@ export default function App() {
         <Tab.Screen name="Tab2" component={TabTwoStackScreen} options={{
           tabBarLabel: 'Tab2',
           tabBarIcon: ({color}) => (
-            <MaterialIcons name="search" size={24} color={color} />
+            <MaterialIcons name="filter-list" size={24} color={color} />
           ),
         }}/>
         <Tab.Screen name="Tab3" component={TabThreeStackScreen} options={{
           tabBarLabel: 'Tab3',
           tabBarIcon: ({color}) => (
-            <MaterialIcons name="how-to-reg" size={24} color={color} />
+            <MaterialIcons name="filter-list" size={24} color={color} />
+          ),
+        }}/>
+        <Tab.Screen name="Tab4" component={TabFourStackScreen} options={{
+          tabBarLabel: 'Tab4',
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="filter-list" size={24} color={color} />
           ),
         }}/>
       </Tab.Navigator>
